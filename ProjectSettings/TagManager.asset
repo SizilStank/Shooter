@@ -10,6 +10,11 @@ TagManager:
   - Shield
   - ShieldPowerUp
   - PowerUp
+  - LaserAmmo
+  - Rings
+  - RingsPowerUpCollected
+  - RingsPowerUpCollected1
+  - RingsPowerUpCollected2
   layers:
   - Default
   - TransparentFX

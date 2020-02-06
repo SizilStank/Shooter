@@ -20,11 +20,13 @@ public class Enemy : MonoBehaviour
     private Rigidbody2D _rigidbody2D;
     private Animator _anim;
     private AudioSource _audioSource;
+    private Camera _camera;
 
 
     private void Start()
     {
         GetComponents();
+        _camera = GameObject.Find("Main Camera").GetComponent<Camera>(); //!!!!!!!!!Need to null check!!!!!!!!!
     }
 
     // Update is called once per frame
@@ -93,7 +95,9 @@ public class Enemy : MonoBehaviour
 
             if (player != null)
             {
+                _camera.ShakeTheCam(); //Playes the Camera Shake Anim
                 player.Damage();
+                _player.AddScore(5);
             }
 
             _anim.SetTrigger("OnEnemyDeath");
@@ -115,6 +119,28 @@ public class Enemy : MonoBehaviour
             _polycollider2D.enabled = !_polycollider2D.enabled;
 
             Destroy(other.gameObject);
+            if (_player != null)
+            {
+                _player.AddScore(10);
+            }
+
+            _anim.SetTrigger("OnEnemyDeath");
+
+            _speed = .5f;
+
+            _canShoot = false;
+
+            _audioSource.PlayOneShot(_explosion);
+
+            Destroy(this.gameObject, 2f);
+            Destroy(_child);
+        }
+
+        if (other.gameObject.tag == "Rings")
+        {
+            _rigidbody2D.isKinematic = true;
+            _polycollider2D.enabled = !_polycollider2D.enabled;
+
             if (_player != null)
             {
                 _player.AddScore(10);

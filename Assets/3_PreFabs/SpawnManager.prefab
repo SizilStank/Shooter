@@ -64,12 +64,19 @@ MonoBehaviour:
     type: 3}
   _speedPowerUpPrefab: {fileID: 1261909112022927038, guid: 865edb24a198628479da8caccbcd31ec,
     type: 3}
+  _AmmoPrefab: {fileID: 7573105974365323616, guid: 20fe908ee7088e34badb644957c5fb90,
+    type: 3}
   _enemyContainer: {fileID: 5806083169468291056}
+  _ringPowerUp: {fileID: 1948403516946136371, guid: f3e22d3390c90254590c96201e764979,
+    type: 3}
   _waitTime: 3
   _powerUps:
   - {fileID: 7642282018077683616, guid: 21399d47b5a2f5248ac730a60ee7ab50, type: 3}
   - {fileID: 1261909112022927038, guid: 865edb24a198628479da8caccbcd31ec, type: 3}
   - {fileID: 4933379164355099289, guid: 38ebf7e705276c64694c239748627f92, type: 3}
+  - {fileID: 7573105974365323616, guid: 20fe908ee7088e34badb644957c5fb90, type: 3}
+  - {fileID: 1948403516946136371, guid: f3e22d3390c90254590c96201e764979, type: 3}
+  - {fileID: 5814800063256261096, guid: c168621069d091e4bb80d378378ed877, type: 3}
   _stopSpawning: 0
 --- !u!1 &5806083169468291056
 GameObject:

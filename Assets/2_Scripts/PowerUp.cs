@@ -6,7 +6,7 @@ public class PowerUp : MonoBehaviour
 {
     [SerializeField] private float _speed = 3f;
     [SerializeField] private int powerupID;//0 = TripleShot, 1 = Speed, 2 = Shields
-
+    
 
     // Update is called once per frame
     void Update()
@@ -40,6 +40,15 @@ public class PowerUp : MonoBehaviour
                     break;
                 case 2:
                     player.ShieldIsActiveRunAnimation();
+                    break;
+                case 3:
+                    player.AmmoPowerUpGiveAmmo();
+                    break;
+                case 4:
+                    player.ActiveRingPowerUp();
+                    break;
+                case 5:
+                    player.HealthPowerUp();
                     break;
                 default:
                     Debug.Log("Default Value");

@@ -20,6 +20,7 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         _gameManagerScript = GameObject.Find("GameManagerObject").GetComponent<GameManagerScript>();
 
         if (_gameManagerScript == null)
@@ -32,11 +33,6 @@ public class UIManager : MonoBehaviour
         _loadNewGameText.text = "";
     }
 
-    private void Update()
-    {
-        //LoadNewGame();
-    }
-
     public void UpdateScore(int playerSocre)
     {
         _scoreText.text = "Score " + playerSocre.ToString();
@@ -44,7 +40,14 @@ public class UIManager : MonoBehaviour
 
     public void UpdateLives(int currentLives)
     {
-        _livesImg.sprite = _liveSprites[currentLives];
+        currentLives = Mathf.Clamp(currentLives, 0, 4);
+
+        if (currentLives == 4)
+        {
+            return;
+        }
+            _livesImg.sprite = _liveSprites[currentLives];
+             
 
         if (currentLives == 0)
         {

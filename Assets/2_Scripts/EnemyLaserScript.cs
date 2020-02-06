@@ -6,6 +6,14 @@ public class EnemyLaserScript : MonoBehaviour
 {
 
     [SerializeField] private float _speed = 3f;
+    private Camera _camera;
+
+
+    private void Start()
+    {
+        _camera = GameObject.Find("Main Camera").GetComponent<Camera>(); //!!!!!!!!!Need to null check!!!!!!!!!
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -28,6 +36,7 @@ public class EnemyLaserScript : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            _camera.ShakeTheCam();
             Destroy(this.gameObject);
 
             Player player = other.transform.GetComponent<Player>();
@@ -37,6 +46,10 @@ public class EnemyLaserScript : MonoBehaviour
                 player.Damage();
             }
         }
-    }
 
+        if (other.gameObject.tag == "Rings")
+        {
+            Destroy(this.gameObject);
+        }
+    }
 }
